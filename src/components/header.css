@@ -1,0 +1,15 @@
+.logo_bx {
+	width: 115px;
+}
+.menu_text {
+	line-height: 121px;
+}
+@media (max-width: 1279px) {
+	.logo_bx {
+		width: 100px;
+		padding:10px
+	}
+	.menu_text {
+		line-height: 101px;
+	}
+}
