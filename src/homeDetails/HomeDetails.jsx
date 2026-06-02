@@ -34,6 +34,7 @@ import RequestTour from "./RequestTour";
 import SimilarProperties from "./SimilarProperties";
 import FrequentlyAskedQuestions from "./FrequentlyAskedQuestions";
 import MapPlaceholder from "./MapPlaceholder";
+import TourRequestModal from "./TourRequestModal";
 
 const tabs = [
   "Overview",
@@ -55,6 +56,8 @@ export default function HomeDetails({ isOpen, onClose }) {
   const [isSaved, setIsSaved] = useState(false);
   const [isShareOpen, setIsShareOpen] = useState(false);
   const [isMoreOpen, setIsMoreOpen] = useState(false);
+  const [isTourRequestOpen, setIsTourRequestOpen] = useState(false);
+  const [tourRequestAction, setTourRequestAction] = useState("tour");
 
   const [showTabs, setShowTabs] = useState(false);
   const [activeTab, setActiveTab] = useState("Overview");
@@ -155,6 +158,8 @@ export default function HomeDetails({ isOpen, onClose }) {
 
     setShowTabs(false);
     setActiveTab("Overview");
+    setIsTourRequestOpen(false);
+    setTourRequestAction("tour");
 
     requestAnimationFrame(() => {
       updateActiveTabFromScroll();
@@ -518,10 +523,24 @@ export default function HomeDetails({ isOpen, onClose }) {
 
             <div className="lg:col-span-1 sticky top-[130px] z-10 space-y-3">
               <div className="bg-[#151515] border border-[#2a2a2a] rounded-2xl p-5 space-y-3">
-                <button className="w-full h-[48px] rounded-xl gold-btn font-bold text-[15px] transition-all duration-300 cursor-pointer shadow-lg">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTourRequestAction("tour");
+                    setIsTourRequestOpen(true);
+                  }}
+                  className="w-full h-[48px] rounded-xl gold-btn font-bold text-[15px] transition-all duration-300 cursor-pointer shadow-lg"
+                >
                   Request a tour
                 </button>
-                <button className="w-full h-[48px] rounded-xl border border-[#2a2a2a] text-white hover:bg-[#1f1f1f] font-semibold text-[15px] transition-all duration-300 cursor-pointer">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setTourRequestAction("apply");
+                    setIsTourRequestOpen(true);
+                  }}
+                  className="w-full h-[48px] rounded-xl border border-[#2a2a2a] text-white hover:bg-[#1f1f1f] font-semibold text-[15px] transition-all duration-300 cursor-pointer"
+                >
                   Request to apply
                 </button>
               </div>
@@ -530,6 +549,11 @@ export default function HomeDetails({ isOpen, onClose }) {
         </div>
       </div>
     </div>
+    <TourRequestModal
+      isOpen={isTourRequestOpen}
+      onClose={() => setIsTourRequestOpen(false)}
+      action={tourRequestAction}
+    />
    
     </>
   );
