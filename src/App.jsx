@@ -12,7 +12,7 @@ function App() {
     <>
       <Routes>
         <Route path="/lomara" element={<MainLayout />} />
-        <Route path="/search" element={<SearchModuleIndex />} />
+        <Route path="/lomara/search" element={<SearchModuleIndex />} />
       </Routes>
     </>
   );

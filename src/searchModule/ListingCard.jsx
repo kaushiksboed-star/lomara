@@ -1,6 +1,7 @@
 import { Heart } from "lucide-react";
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import HomeDetails from "../homeDetails/HomeDetails";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -8,8 +9,13 @@ import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 
 export default function ListingCard() {
+  const [detailsOpen, setDetailsOpen] = useState(false);
+
   return (
-    <div className="bg-[#111] border border-[#1f1f1f] rounded-2xl overflow-hidden">
+    <>
+    <div className="bg-[#111] border border-[#1f1f1f] rounded-2xl overflow-hidden cursor-pointer"
+     onClick={() => setDetailsOpen(true)}
+     >
       {/* Image */}
       <div className="relative h-[220px] overflow-hidden">
         <Swiper
@@ -75,10 +81,17 @@ export default function ListingCard() {
           75 Mulford Rd, Lafayette, NJ
         </p>
 
-        <button className="w-full h-[40px] text-sm rounded-xl gold-btn font-semibold transition-all duration-300 mt-5 cursor-pointer">
+        <button
+          type="button"
+         
+          className="w-full h-[40px] text-sm rounded-xl gold-btn font-semibold transition-all duration-300 mt-5 cursor-pointer"
+        >
           Check Availability
         </button>
       </div>
     </div>
+
+    <HomeDetails isOpen={detailsOpen} onClose={() => setDetailsOpen(false)} />
+    </>
   );
 }
