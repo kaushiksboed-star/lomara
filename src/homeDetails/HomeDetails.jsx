@@ -62,6 +62,60 @@ export default function HomeDetails({ isOpen, onClose }) {
   const shareDropdownRef = useRef(null);
   const moreDropdownRef = useRef(null);
   const scrollContainerRef = useRef(null);
+  const overviewSectionRef = useRef(null);
+  const availableUnitsSectionRef = useRef(null);
+  const factsFeaturesSectionRef = useRef(null);
+
+  const sectionRefMap = {
+    Overview: overviewSectionRef,
+    "Available Units": availableUnitsSectionRef,
+    "Facts & features": factsFeaturesSectionRef,
+  };
+
+  const getHeaderOffset = () => (showTabs ? 108 : 60);
+
+  const updateActiveTabFromScroll = () => {
+    if (!scrollContainerRef.current) return;
+
+    const headerOffset = getHeaderOffset();
+    const markerY = scrollContainerRef.current.scrollTop + headerOffset + 24;
+
+    const sections = [
+      { tab: "Overview", ref: overviewSectionRef },
+      { tab: "Available Units", ref: availableUnitsSectionRef },
+      { tab: "Facts & features", ref: factsFeaturesSectionRef },
+    ];
+
+    let currentTab = "Overview";
+    for (const section of sections) {
+      if (!section.ref.current) continue;
+      if (section.ref.current.offsetTop <= markerY) {
+        currentTab = section.tab;
+      } else {
+        break;
+      }
+    }
+
+    setActiveTab((prevTab) =>
+      prevTab === currentTab ? prevTab : currentTab
+    );
+  };
+
+  const scrollToSection = (tab) => {
+    setActiveTab(tab);
+
+    const sectionRef = sectionRefMap[tab];
+    if (!scrollContainerRef.current || !sectionRef?.current) return;
+
+    const headerOffset = getHeaderOffset();
+    const scrollTop =
+      sectionRef.current.offsetTop - headerOffset - 16;
+
+    scrollContainerRef.current.scrollTo({
+      top: Math.max(scrollTop, 0),
+      behavior: "smooth",
+    });
+  };
 
   const handleScroll = () => {
     if (scrollContainerRef.current) {
@@ -70,6 +124,8 @@ export default function HomeDetails({ isOpen, onClose }) {
       } else {
         setShowTabs(false);
       }
+
+      updateActiveTabFromScroll();
     }
   };
 
@@ -94,6 +150,17 @@ export default function HomeDetails({ isOpen, onClose }) {
     };
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    setShowTabs(false);
+    setActiveTab("Overview");
+
+    requestAnimationFrame(() => {
+      updateActiveTabFromScroll();
+    });
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
   const images = [
@@ -105,6 +172,7 @@ export default function HomeDetails({ isOpen, onClose }) {
   ];
 
   return (
+    <>
     <div
       ref={scrollContainerRef}
       onScroll={handleScroll}
@@ -224,7 +292,7 @@ export default function HomeDetails({ isOpen, onClose }) {
                 return (
                   <button
                     key={tab}
-                    onClick={() => setActiveTab(tab)}
+                    onClick={() => scrollToSection(tab)}
                     className={`relative h-full flex items-center px-1 text-[14px] font-medium transition-colors cursor-pointer ${isActive ? "text-[#c5913b]" : "text-gray-400 hover:text-white"}`}
                   >
                     {tab}
@@ -278,7 +346,10 @@ export default function HomeDetails({ isOpen, onClose }) {
             {/* Left Column Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Pricing & Address */}
-              <div className="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b border-[#1f1f1f]">
+              <div
+                ref={overviewSectionRef}
+                className="flex flex-col sm:flex-row justify-between items-start gap-4 pb-6 border-b border-[#1f1f1f]"
+              >
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-white text-[28px] font-extrabold">
@@ -428,9 +499,13 @@ export default function HomeDetails({ isOpen, onClose }) {
               <div className="w-full border-t border-[#1f1f1f]"></div>
               <NearbyProperties />
               <div className="w-full border-t border-[#1f1f1f]"></div>
-              <AvailableUnits />
+              <div ref={availableUnitsSectionRef}>
+                <AvailableUnits />
+              </div>
               <div className="w-full border-t border-[#1f1f1f]"></div>
-              <FactsFeaturesPolicies />
+              <div ref={factsFeaturesSectionRef}>
+                <FactsFeaturesPolicies />
+              </div>
               <div className="w-full border-t border-[#1f1f1f]"></div>
               <NearbySchools />
               <div className="w-full border-t border-[#1f1f1f]"></div>
@@ -455,5 +530,7 @@ export default function HomeDetails({ isOpen, onClose }) {
         </div>
       </div>
     </div>
+   
+    </>
   );
 }
