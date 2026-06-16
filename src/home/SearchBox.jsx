@@ -6,13 +6,13 @@ import {
 } from "lucide-react";
 
 const searchHistory = [
-  "Florida, NY",
-  "New York City",
-  "Los Angeles",
-  "California",
-  "Miami Beach",
-  "Dallas",
-  "San Francisco",
+  "Santo Domingo",
+  "Santiago",
+  "Punta Cana",
+  "Bávaro",
+  "Puerto Plata",
+  "La Romana",
+  "Cabarete",
 ];
 
 export default function SearchBox() {

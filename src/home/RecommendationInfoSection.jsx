@@ -13,33 +13,33 @@ const footerMenus = [
       },
 
       {
-        label: "Albuquerque real estate",
-        href: "/real-estate/albuquerque",
+        label: "Santo Domingo real estate",
+        href: "/real-estate/santo-domingo",
       },
 
       {
-        label: "Atlanta real estate",
-        href: "/real-estate/atlanta",
+        label: "Santiago real estate",
+        href: "/real-estate/santiago",
       },
 
       {
-        label: "Austin real estate",
-        href: "/real-estate/austin",
+        label: "Punta Cana real estate",
+        href: "/real-estate/punta-cana",
       },
 
       {
-        label: "Baltimore real estate",
-        href: "/real-estate/baltimore",
+        label: "Puerto Plata real estate",
+        href: "/real-estate/puerto-plata",
       },
 
       {
-        label: "Boston real estate",
-        href: "/real-estate/boston",
+        label: "La Romana real estate",
+        href: "/real-estate/la-romana",
       },
 
       {
-        label: "Chicago real estate",
-        href: "/real-estate/chicago",
+        label: "Sosúa real estate",
+        href: "/real-estate/sosua",
       },
     ],
   },
