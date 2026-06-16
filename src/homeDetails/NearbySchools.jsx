@@ -3,24 +3,24 @@ import { School, GraduationCap } from "lucide-react";
 const schoolsData = [
   {
     id: 1,
-    rating: "6",
-    name: "William A Carter School",
+    rating: "8",
+    name: "Colegio San Judas",
     grades: "K-5",
-    distance: "1.6 mi"
+    distance: "1.6 km"
   },
   {
     id: 2,
-    rating: "4",
-    name: "Middletown Twin Towers Middle School",
+    rating: "7",
+    name: "Liceo Pedro Henríquez Ureña",
     grades: "6-8",
-    distance: "1.5 mi"
+    distance: "1.5 km"
   },
   {
     id: 3,
-    rating: "5",
-    name: "Middletown High School",
+    rating: "9",
+    name: "Colegio Calasanz",
     grades: "9-12",
-    distance: "1.7 mi"
+    distance: "1.7 km"
   }
 ];
 
@@ -31,7 +31,7 @@ export default function NearbySchools() {
       {/* --- Section Title --- */}
       <div className="space-y-1">
         <h3 className="text-white text-[22px] font-extrabold tracking-tight">
-          Nearby schools in Middletown
+          Nearby schools in Santo Domingo
         </h3>
         <p className="text-[13px] text-gray-300 font-semibold tracking-wide uppercase">
           Lomara Rating

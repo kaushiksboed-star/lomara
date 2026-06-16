@@ -4,27 +4,27 @@ import { ChevronDown } from "lucide-react";
 const faqData = [
   {
     id: 1,
-    question: "What is the walk score of Boulder Pointe Apartments?",
-    answer: "Boulder Pointe Apartments has a walk score of 12, it's car-dependent."
+    question: "What is the walk score of Residencial Piedra Linda?",
+    answer: "Residencial Piedra Linda has a walk score of 12, it's car-dependent."
   },
   {
     id: 2,
-    question: "What schools are assigned to Boulder Pointe Apartments?",
-    answer: "The schools assigned to Boulder Pointe Apartments include William A Carter School, Middletown Twin Towers Middle School, and Middletown High School."
+    question: "What schools are assigned to Residencial Piedra Linda?",
+    answer: "The schools assigned to Residencial Piedra Linda include Colegio San Judas, Liceo Pedro Henríquez Ureña, and Colegio Calasanz."
   },
   {
     id: 3,
-    question: "Does Boulder Pointe Apartments have in-unit laundry?",
-    answer: "Yes, Boulder Pointe Apartments has in-unit laundry for some or all of the units."
+    question: "Does Residencial Piedra Linda have in-unit laundry?",
+    answer: "Yes, Residencial Piedra Linda has in-unit laundry for some or all of the units."
   },
   {
     id: 4,
-    question: "What neighborhood is Boulder Pointe Apartments in?",
-    answer: "Boulder Pointe Apartments is in the Mechanicstown neighborhood in Middletown, NY."
+    question: "What neighborhood is Residencial Piedra Linda in?",
+    answer: "Residencial Piedra Linda is in the Ensanche Naco neighborhood in Santo Domingo, Distrito Nacional."
   },
   {
     id: 5,
-    question: "What are Boulder Pointe Apartments's policies on pets?",
+    question: "What are Residencial Piedra Linda's policies on pets?",
     answer: "A maximum of 1 cat is allowed per unit. This building has a one time fee of $300 and monthly fee of $60 for cats. A maximum of 1 dog is allowed per unit. This building has a one time fee of $300 and monthly fee of $60 for dogs."
   }
 ];

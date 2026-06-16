@@ -77,8 +77,8 @@ export default function ListingCard() {
         <p className="text-gray-300 text-[14px] mt-1">1 bd • Fees may apply</p>
 
         <p className="text-gray-400 text-[13px] mt-2 leading-5">
-          Ascot Park Apartments <br />
-          75 Mulford Rd, Lafayette, NJ
+          Residencial Ascot Park <br />
+          Av. Winston Churchill 75, Santo Domingo, Distrito Nacional
         </p>
 
         <button

@@ -358,12 +358,12 @@ export default function HomeDetails({ isOpen, onClose }) {
                 <div>
                   <div className="flex items-baseline gap-2">
                     <span className="text-white text-[28px] font-extrabold">
-                      Boulder Pointe Apartments
-                    </span>
+                        Residencial Piedra Linda
+                      </span>
                   </div>
-                  <p className="text-gray-300 text-[15px] font-medium mt-1">
-                    201 Genung St, Middletown, NY 10940
-                  </p>
+                    <p className="text-gray-300 text-[15px] font-medium mt-1">
+                      Calle Duarte 201, Santo Domingo, Distrito Nacional
+                    </p>
                 </div>
 
                 <div className="flex gap-6 border-t sm:border-t-0 pt-4 sm:pt-0 w-full sm:w-auto border-[#2a2a2a]">
